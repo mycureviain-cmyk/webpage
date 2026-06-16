@@ -13,13 +13,14 @@ const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormType) => {
     try {
-      // Simulate form submission
+      // TODO: Replace with real API call (e.g. POST /api/contact)
       await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.info('Contact request submitted:', data);
       setIsSuccess(true);
       reset();
       toast.success('Thank you! We will contact you soon.');
       setTimeout(() => setIsSuccess(false), 3000);
-    } catch (error) {
+    } catch {
       toast.error('Something went wrong. Please try again.');
     }
   };

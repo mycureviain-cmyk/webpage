@@ -34,7 +34,6 @@ const CountUp: React.FC<CountUpProps> = ({ end, duration = 2000 }) => {
 
     let startTime: number;
     let animationId: number;
-    const increment = end / (duration / 16);
 
     const animate = (now: number) => {
       if (!startTime) startTime = now;

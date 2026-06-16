@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     'affordable surgery',
     'international patient services',
   ],
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   openGraph: {
     title: 'MyCureVia - Medical Tourism in Hyderabad, India',
@@ -26,6 +25,12 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0ea5e9',
 };
 
 export default function RootLayout({
@@ -36,8 +41,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="theme-color" content="#0ea5e9" />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.variable} antialiased`}>
