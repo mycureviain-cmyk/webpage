@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply scroll-smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-300;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+dark::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+dark::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+dark::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Smooth transitions */
+.transition-all-smooth {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Utility classes */
+.gradient-text {
+  @apply bg-gradient-to-r from-primary-600 to-teal-600 bg-clip-text text-transparent;
+}
+
+.gradient-bg {
+  @apply bg-gradient-primary;
+}
+
+.card-shadow {
+  @apply shadow-card hover:shadow-hover transition-shadow duration-300;
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-primary text-white rounded-lg font-semibold hover:shadow-hover transition-all duration-300 hover:scale-105;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-white dark:bg-slate-800 text-primary-600 dark:text-teal-400 border-2 border-primary-600 dark:border-teal-400 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-slate-700 transition-all duration-300;
+}
+
+.btn-outline {
+  @apply px-4 py-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-300;
+}
+
+/* Form elements */
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2 dark:ring-offset-slate-900;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
