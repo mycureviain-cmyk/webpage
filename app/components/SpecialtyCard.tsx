@@ -20,10 +20,13 @@ const SpecialtyCard: React.FC<SpecialtyCardProps> = ({ specialty, index = 0 }) =
       whileHover={{ y: -5 }}
     >
       <Link href={`/treatments/${specialty.slug}`}>
-        <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden card-shadow h-full cursor-pointer transition-all">
+        <div className="group glass-card lift glow-hover overflow-hidden h-full cursor-pointer">
           {/* Icon Background */}
-          <div className="bg-gradient-light dark:bg-slate-700 p-6 text-center">
-            <div className="text-6xl mb-4">{specialty.icon}</div>
+          <div className="relative bg-gradient-to-br from-primary-50 to-teal-50 dark:from-slate-800 dark:to-slate-800/50 p-8 text-center overflow-hidden">
+            <div className="absolute -top-8 -right-8 w-28 h-28 bg-gradient-to-br from-primary-200/40 to-teal-200/40 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+            <div className="relative text-6xl transition-transform duration-300 group-hover:scale-110">
+              {specialty.icon}
+            </div>
           </div>
 
           {/* Content */}
@@ -45,7 +48,7 @@ const SpecialtyCard: React.FC<SpecialtyCardProps> = ({ specialty, index = 0 }) =
                 {specialty.procedures.slice(0, 2).map((procedure, idx) => (
                   <span
                     key={idx}
-                    className="text-xs bg-primary-100 dark:bg-slate-700 text-primary-700 dark:text-teal-300 px-2 py-1 rounded"
+                    className="text-xs bg-primary-100/70 dark:bg-white/5 text-primary-700 dark:text-teal-300 px-2.5 py-1 rounded-full"
                   >
                     {procedure}
                   </span>

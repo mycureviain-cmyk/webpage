@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
@@ -10,6 +10,14 @@ import Logo from './Logo';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = (menu: string) => {
@@ -55,7 +63,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-slate-900 shadow-soft">
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'glass shadow-soft'
+          : 'bg-white/60 dark:bg-slate-950/40 backdrop-blur-md border-b border-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -65,34 +79,29 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-1">
             {menuItems.map((item) => (
               <div key={item.label} className="relative group">
-                <button
-                  className="px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-teal-400 transition-colors"
+                <Link
+                  href={item.href}
+                  className="flex items-center px-4 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:text-primary-700 dark:hover:text-teal-300 hover:bg-primary-50/80 dark:hover:bg-white/5 transition-all"
                 >
-                  <Link href={item.href} className="flex items-center">
-                    {item.label}
-                    {item.submenu && (
-                      <FiChevronDown className="ml-1 w-4 h-4" />
-                    )}
-                  </Link>
-                </button>
+                  {item.label}
+                  {item.submenu && <FiChevronDown className="ml-1 w-4 h-4" />}
+                </Link>
 
                 {/* Desktop Dropdown */}
                 {item.submenu && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    className="absolute left-0 mt-0 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-card opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
-                  >
-                    {item.submenu.map((submenu) => (
-                      <Link
-                        key={submenu.label}
-                        href={submenu.href}
-                        className="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-primary-50 dark:hover:bg-slate-700 first:rounded-t-lg last:rounded-b-lg transition-colors"
-                      >
-                        {submenu.label}
-                      </Link>
-                    ))}
-                  </motion.div>
+                  <div className="absolute left-0 pt-3 w-52 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300">
+                    <div className="glass-card shadow-card p-2">
+                      {item.submenu.map((submenu) => (
+                        <Link
+                          key={submenu.label}
+                          href={submenu.href}
+                          className="block px-4 py-2.5 text-sm rounded-xl text-slate-700 dark:text-slate-300 hover:bg-primary-50 dark:hover:bg-white/5 hover:text-primary-700 dark:hover:text-teal-300 transition-colors"
+                        >
+                          {submenu.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             ))}

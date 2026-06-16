@@ -5,14 +5,14 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import classNames from 'classnames';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
+  'inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 active:scale-[0.98]',
   {
     variants: {
       variant: {
         primary:
-          'bg-gradient-primary text-white hover:shadow-hover hover:scale-105',
+          'bg-gradient-primary text-white shadow-lg shadow-primary-500/20 hover:shadow-xl hover:shadow-teal-500/30 hover:-translate-y-0.5',
         secondary:
-          'bg-white dark:bg-slate-800 text-primary-600 dark:text-teal-400 border-2 border-primary-600 dark:border-teal-400 hover:bg-primary-50 dark:hover:bg-slate-700',
+          'bg-white/80 dark:bg-white/5 backdrop-blur text-primary-700 dark:text-teal-300 border border-primary-200 dark:border-white/10 hover:border-primary-400 dark:hover:border-teal-400 hover:bg-white dark:hover:bg-white/10',
         outline:
           'border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800',
         ghost: 'text-primary-600 dark:text-teal-400 hover:bg-primary-50 dark:hover:bg-slate-800',
@@ -20,7 +20,7 @@ const buttonVariants = cva(
       },
       size: {
         xs: 'px-3 py-1.5 text-sm',
-        sm: 'px-4 py-2 text-sm',
+        sm: 'px-5 py-2 text-sm',
         md: 'px-6 py-3 text-base',
         lg: 'px-8 py-4 text-lg',
         xl: 'px-10 py-5 text-xl',

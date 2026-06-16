@@ -131,9 +131,11 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-light dark:bg-slate-800 rounded-xl p-6 text-center"
+                className="group glass-card lift p-6 text-center"
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary-100 to-teal-100 dark:from-primary-900/40 dark:to-teal-900/40 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {item.icon}
+                </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                   {item.title}
                 </h3>
@@ -147,7 +149,7 @@ const Home = () => {
       </section>
 
       {/* Treatment Specialties Section */}
-      <section className="py-20 bg-gradient-light dark:bg-slate-800">
+      <section className="py-24 mesh-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -211,7 +213,7 @@ const Home = () => {
       </section>
 
       {/* Patient Journey Timeline Section */}
-      <section className="py-20 bg-gradient-light dark:bg-slate-800">
+      <section className="py-24 mesh-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -268,8 +270,8 @@ const Home = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 card-shadow">
-                  <div className="w-12 h-12 bg-gradient-primary text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
+                <div className="glass-card lift p-6 h-full">
+                  <div className="w-12 h-12 bg-gradient-primary text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-lg shadow-primary-500/20">
                     {item.step}
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -314,30 +316,37 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 bg-white dark:bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="relative overflow-hidden rounded-3xl bg-gradient-primary text-white px-8 py-16 md:py-20 text-center shadow-2xl shadow-primary-500/20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready for Your Medical Journey?
-            </h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Get a free medical opinion from our expert specialists today
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg">
-                <a href="/contact">Get Free Opinion</a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="lg"
-                className="text-white hover:text-blue-100"
-              >
-                <a href="https://wa.me/919912066373">WhatsApp Us</a>
-              </Button>
+            {/* Decorative overlays */}
+            <div className="absolute inset-0 grid-overlay opacity-30" />
+            <div className="absolute -top-16 -right-16 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute -bottom-16 -left-16 w-72 h-72 bg-teal-300/20 rounded-full blur-3xl" />
+
+            <div className="relative">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
+                Ready for Your Medical Journey?
+              </h2>
+              <p className="text-xl mb-10 text-blue-50/90 max-w-2xl mx-auto">
+                Get a free medical opinion from our expert specialists today
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="secondary" size="lg">
+                  <a href="/contact">Get Free Opinion</a>
+                </Button>
+                <Button
+                  size="lg"
+                  className="bg-white/10 backdrop-blur border border-white/30 text-white hover:bg-white/20 shadow-none"
+                >
+                  <a href="https://wa.me/919912066373">WhatsApp Us</a>
+                </Button>
+              </div>
             </div>
           </motion.div>
         </div>

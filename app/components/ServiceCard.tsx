@@ -29,9 +29,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       viewport={{ once: true }}
       className="h-full"
     >
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-6 card-shadow h-full flex flex-col">
+      <div className="group glass-card lift glow-hover p-7 h-full flex flex-col">
         {/* Icon */}
-        <div className="text-4xl mb-4">{icon}</div>
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-100 to-teal-100 dark:from-primary-900/40 dark:to-teal-900/40 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform duration-300">
+          {icon}
+        </div>
 
         {/* Title */}
         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">

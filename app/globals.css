@@ -66,6 +66,79 @@ dark::-webkit-scrollbar-thumb:hover {
   @apply shadow-card hover:shadow-hover transition-shadow duration-300;
 }
 
+/* ===== Modern UI utilities ===== */
+
+/* Glassmorphism surfaces */
+.glass {
+  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/40 dark:border-white/10;
+}
+
+.glass-card {
+  @apply bg-white/80 dark:bg-slate-800/60 backdrop-blur-md border border-slate-200/70 dark:border-white/10 rounded-2xl;
+}
+
+/* Gradient border card (modern accent edge) */
+.gradient-border {
+  position: relative;
+  background: clip-padding;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.5), rgba(20, 184, 166, 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Soft animated mesh background */
+.mesh-bg {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(at 15% 20%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
+    radial-gradient(at 85% 10%, rgba(20, 184, 166, 0.12) 0px, transparent 50%),
+    radial-gradient(at 75% 85%, rgba(14, 165, 233, 0.10) 0px, transparent 50%),
+    radial-gradient(at 25% 90%, rgba(20, 184, 166, 0.10) 0px, transparent 50%);
+}
+.dark .mesh-bg {
+  background-color: #020617;
+  background-image:
+    radial-gradient(at 15% 20%, rgba(14, 165, 233, 0.18) 0px, transparent 50%),
+    radial-gradient(at 85% 10%, rgba(20, 184, 166, 0.18) 0px, transparent 50%),
+    radial-gradient(at 75% 85%, rgba(14, 165, 233, 0.14) 0px, transparent 50%),
+    radial-gradient(at 25% 90%, rgba(20, 184, 166, 0.14) 0px, transparent 50%);
+}
+
+/* Subtle grid overlay */
+.grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(100, 116, 139, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 116, 139, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Modern lift-on-hover */
+.lift {
+  @apply transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-hover;
+}
+
+/* Glow ring on hover */
+.glow-hover {
+  @apply transition-shadow duration-300;
+}
+.glow-hover:hover {
+  box-shadow: 0 0 0 1px rgba(20, 184, 166, 0.25), 0 18px 40px -12px rgba(14, 165, 233, 0.35);
+}
+
+/* Pill badge */
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold;
+}
+
 .btn-primary {
   @apply px-6 py-3 bg-gradient-primary text-white rounded-lg font-semibold hover:shadow-hover transition-all duration-300 hover:scale-105;
 }
@@ -111,5 +184,53 @@ select:focus {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* Floating blobs for hero ambience */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+.animate-blob {
+  animation: blob 14s ease-in-out infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Shimmer for gradient text accent */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.gradient-text-animated {
+  background: linear-gradient(90deg, #0ea5e9, #14b8a6, #0ea5e9);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .gradient-text-animated {
+    animation: none;
   }
 }

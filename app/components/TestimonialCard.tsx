@@ -21,9 +21,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       transition={{ delay: index * 0.1 }}
       viewport={{ once: true }}
     >
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-6 card-shadow">
+      <div className="glass-card lift p-7 h-full relative">
+        {/* Quote mark */}
+        <span className="absolute top-4 right-6 text-6xl leading-none text-primary-200/60 dark:text-teal-500/20 font-serif select-none">
+          &rdquo;
+        </span>
         {/* Rating */}
-        <div className="flex items-center space-x-1 mb-4">
+        <div className="flex items-center space-x-1 mb-4 relative">
           {[...Array(testimonial.rating)].map((_, i) => (
             <FiStar
               key={i}
