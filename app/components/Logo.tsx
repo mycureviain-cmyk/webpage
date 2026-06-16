@@ -24,11 +24,11 @@ const Logo: React.FC<LogoProps> = ({
   className = '',
   priority = true,
 }) => {
-  // Uses the on-brand SVG placeholder. To switch to your raster brand logo,
-  // drop it at /public/logo.png and change the initial value below to
-  // '/logo.png' (and the aspect ratio if needed). The onError fallback keeps
-  // the SVG showing if the PNG is ever missing, so there is never a broken image.
-  const [src, setSrc] = useState('/logo.svg');
+  // Prefers your raster brand logo at /public/logo.png. Until that file
+  // exists, the onError handler falls back to the on-brand SVG placeholder,
+  // so there is never a broken image. Drop in logo.png and it appears
+  // automatically with no code change.
+  const [src, setSrc] = useState('/logo.png');
   const aspectRatio = src.endsWith('.svg') ? 3.5 : 2;
   const width = Math.round(height * aspectRatio);
 
