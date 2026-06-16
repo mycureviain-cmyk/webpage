@@ -336,7 +336,7 @@ const Home = () => {
                 size="lg"
                 className="text-white hover:text-blue-100"
               >
-                <a href="https://wa.me/919876543210">WhatsApp Us</a>
+                <a href="https://wa.me/919912066373">WhatsApp Us</a>
               </Button>
             </div>
           </motion.div>

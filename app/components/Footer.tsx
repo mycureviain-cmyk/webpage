@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Logo from './Logo';
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import {
   FiFacebook,
@@ -36,7 +37,7 @@ const Footer = () => {
       title: 'Support',
       links: [
         { label: 'Contact Us', href: '/contact' },
-        { label: 'WhatsApp', href: 'https://wa.me/919876543210' },
+        { label: 'WhatsApp', href: 'https://wa.me/919912066373' },
         { label: 'Live Chat', href: '#' },
         { label: 'Patient Portal', href: '/portal' },
       ],
@@ -59,11 +60,10 @@ const Footer = () => {
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">MC</span>
+            <div className="mb-4">
+              <div className="inline-flex bg-white rounded-lg px-3 py-2">
+                <Logo height={40} priority={false} />
               </div>
-              <span className="font-bold text-white">MyCureVia</span>
             </div>
             <p className="text-sm text-slate-400 mb-4">
               Your path to better healthcare. World-class medical tourism services.
@@ -143,7 +143,7 @@ const Footer = () => {
             </div>
             <div>
               <p className="text-sm text-slate-400">Phone</p>
-              <p className="text-white font-semibold">+91 9876543210</p>
+              <p className="text-white font-semibold">+91 99120 66373</p>
             </div>
           </div>
 

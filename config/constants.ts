@@ -3,8 +3,8 @@ export const COMPANY_TAGLINE = 'Your Path to Better Healthcare';
 
 export const CONTACT_INFO = {
   email: 'info@mycurovia.com',
-  phone: '+91 (0) 9876543210',
-  whatsapp: '+91 9876543210',
+  phone: '+91 99120 66373',
+  whatsapp: '+91 9912066373',
   address: 'Hyderabad, India',
   officeHours: 'Monday - Sunday, 24/7 Support',
 };

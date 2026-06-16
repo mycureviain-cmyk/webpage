@@ -11,8 +11,8 @@ const ContactPage = () => {
     {
       icon: FiPhone,
       title: 'Phone',
-      value: '+91 9876543210',
-      link: 'tel:+919876543210',
+      value: '+91 99120 66373',
+      link: 'tel:+919912066373',
     },
     {
       icon: FiMail,

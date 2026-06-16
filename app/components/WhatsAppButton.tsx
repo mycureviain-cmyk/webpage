@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FiMessageCircle } from 'react-icons/fi';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '919876543210'; // Your WhatsApp business number
+  const phoneNumber = '919912066373'; // Your WhatsApp business number
   const message = 'Hi MyCureVia! I would like to know more about your services.';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

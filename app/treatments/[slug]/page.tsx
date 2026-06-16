@@ -226,7 +226,7 @@ const TreatmentDetailPage = () => {
                   size="lg"
                   fullWidth
                 >
-                  <a href="https://wa.me/919876543210">WhatsApp</a>
+                  <a href="https://wa.me/919912066373">WhatsApp</a>
                 </Button>
               </div>
             </motion.div>
